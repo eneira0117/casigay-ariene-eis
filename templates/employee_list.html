@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='Bulma/bulma.css') }}">
+    <title>Document</title>
+</head>
+<body>
+    <section class="hero has-background-link-dark is-italic">
+        <div class="hero-body">
+          <p class="title">Employee Information System</p>
+          <p class="subtitle">Casigay,Ariene Glieza Y.</p>
+        </div>
+      </section>
+
+      
+        <div class="columns mt-2 is-centered">
+        <div class="column is-2">
+            <aside class="menu has-background-danger-light">
+                <ul class="menu-list">
+                    <li><a>Employee list</a></li>
+                    <li><a>Personal info</a></li>
+                    <li><a>Educational info</a></li>
+                    <li><a>Work exp</a></li>
+                    <li><a>Trainings</a></li>
+                    <li><a class="has-text-black" href="login.html"> Log out</a></li>
+                </ul>
+            </aside>
+        </div>
+    
+        
+      <div class="column is-10">
+        <div style="width: 800px;" class="container">
+        <table class="table is-bordered is-striped is-fullwidth">
+            <thead>
+                <tr>
+                    <th colspan="7" class="has-text-centered has-background-link-dark">Employee list</th>
+                </tr>
+                    <tr class="has-text-link">
+                        <th class="has-text-link">EMPLOYEE ID</th>
+                        <th class="has-text-link">Last Name</th>
+                        <th class="has-text-link">First Name</th>
+                        <th class="has-text-link">Middle Name</th>
+                        <th class="has-text-link">Gender</th>
+                        
+                    </tr>
+                    
+                        {% for employee in employees %}
+                        <tr>
+                            <td>{{ employee[0] }}</td>
+                            <td>{{ employee[1] }}</td>
+                            <td>{{ employee[2] }}</td>
+                            <td>{{ employee[3] }}</td>
+                            <td>{{ employee[4] }}</td>
+                            
+                        </tr>
+                        {% endfor %}
+                    
+            </table>
+        </div>
+    </div>
+      </div>
+    </div>
+</body>
+</html>
