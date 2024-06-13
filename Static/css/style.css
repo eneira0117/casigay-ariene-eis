@@ -1,0 +1,110 @@
+ /* Custom aesthetics-focused styles */
+ body {
+    background-color: #f7f7f7; /* Light gray background */
+    font-family: 'Arial', sans-serif;
+    color: #333; /* Dark gray text color */
+    margin: 0;
+    padding: 0;
+}
+
+.hero {
+    background-color: #2a71d8; /* Dark blue background */
+    color: #fff; /* White text color */
+    padding: 2rem 0;
+    text-align: center;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+.messagebox {
+    background-color: #f8d7da; /* Red background for error message */
+    color: #721c24; /* Dark red text color */
+    border: 1px solid #f5c6cb; /* Red border */
+    padding: 1rem;
+    border-radius: 5px;
+    text-align: center;
+    margin: 1rem auto;
+    max-width: 600px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    animation: fadeIn 0.5s ease-in-out; /* Fade-in animation */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.columns {
+    margin-top: 2rem;
+    animation: slideIn 0.5s ease-in-out; /* Slide-in animation */
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.menu-list a {
+    color: #333; /* Dark gray text color */
+}
+
+.menu-list a:hover {
+    color: #2a71d8; /* Dark blue text color on hover */
+}
+
+.table {
+    background-color: #fff; /* White background for table */
+    margin-bottom: 2rem;
+}
+
+.table thead th {
+    background-color: #2a71d8; /* Dark blue header background */
+    color: #fff; /* White text color for header */
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: #f2f2f2; /* Light gray background for even rows */
+}
+
+.table tbody tr:hover {
+    background-color: #e6e6e6; /* Lighter gray background on hover */
+}
+
+.add-button {
+    background-color: #28a745; /* Green background for add button */
+    color: #fff; /* White text color */
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.update-button {
+    background-color: #28a745; /* Green background for add button */
+    color: #fff; /* White text color */
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add-button:hover {
+    background-color: #218838; /* Darker green on hover */
+}

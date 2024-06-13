@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='Bulma/bulma.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Employee Information System - Update Employee</title>
+</head>
+
+<body>
+
+    <section class="hero">
+        <div class="hero-body">
+            <p class="title">Employee Information System</p>
+            <p class="subtitle">Casigay, Ariene Glieza Y.</p>
+        </div>
+    </section>
+
+    <div class="columns is-centered mt-4">
+        <div class="column is-2">
+            <aside class="menu has-background-danger-light">
+                <ul class="menu-list">
+                    <li><a href="/employee-list">Employee list</a></li>
+                    <li><a href="#">Personal info</a></li>
+                    <li><a href="#">Educational info</a></li>
+                    <li><a href="#">Work exp</a></li>
+                    <li><a href="#">Trainings</a></li>
+                    <li><a class="has-text-black" href="index.html">Log out</a></li>
+                </ul>
+            </aside>
+        </div>
+
+        <div class="column is-10">
+          <div style="width: 500px;" class="container">
+                    <h1 class="title has-text-centered">Update Employee</h1>
+                    <form class="box" action="/update-employee" method="POST">
+                        <div class="field">
+                            <label class="label">Employee ID</label>
+                            <div class="control">
+                                <input class="input" name="emp_id" type="text" value="{{ employee[0] }}" readonly>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label class="label">Last Name</label>
+                            <div class="control">
+                                <input class="input" name="lname" type="text" value="{{ employee[1] }}" required>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label class="label">First Name</label>
+                            <div class="control">
+                                <input class="input" name="fname" type="text" value="{{ employee[2] }}" required>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label class="label">Middle Name</label>
+                            <div class="control">
+                                <input class="input" name="mname" type="text" value="{{ employee[3] }}" required>
+                            </div>
+                        </div>
+
+                        <div class="field is-grouped">
+                            <div class="control">
+                                <button class="button is-link" type="submit">Update Employee</button>
+                            </div>
+                            <div class="control">
+                                <button class="button is-light" type="reset">Reset</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

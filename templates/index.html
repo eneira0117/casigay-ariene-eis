@@ -6,31 +6,50 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ url_for('static', filename='Bulma/bulma.css') }}">
     <title>Flask App</title>
+    <style>
+        @media (max-width: 768px) {
+            .container {
+                width: 100% !important;
+                padding: 20px;
+            }
+            h1.is-size-1 {
+                font-size: 1.5rem !important;
+            }
+            .box {
+                padding: 20px !important;
+            }
+            .field label.label {
+                font-size: 14px !important;
+            }
+            .field .control .input {
+                font-size: 14px !important;
+            }
+            .button {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 <body>
-    
-  
-    <div style="width: 500px;" class="container">
+    <div class="container" style="max-width: 500px;">
         <h1 class="has-text-black has-text-weight-bold has-text-centered is-size-1">LOGIN</h1>
         <form class="box has-background-warning-light" action="check-user" method="POST">
             <div class="field">
-              <label class="label">Username</label>
-              <div class="control">
-                <input class="input" type="email" name="username" placeholder="e.g. yessah@example.com" required />
-              </div>
+                <label class="label">Username</label>
+                <div class="control">
+                    <input class="input" type="email" name="username" placeholder="e.g. yessah@example.com" required />
+                </div>
             </div>
-          
             <div class="field">
-              <label class="label">Password</label>
-              <div class="control">
-                <input class="input" type="password" name="password" placeholder="**********" required />
-              </div>
+                <label class="label">Password</label>
+                <div class="control">
+                    <input class="input" type="password" name="password" placeholder="**********" required />
+                </div>
             </div>
-          <div class="has-text-centered">
-            <button class="button is-primary has-background-link-dark" type="submit">LOGIN</button>
-        </div>
-          </form>
-        </div>
-
+            <div class="has-text-centered">
+                <button class="button is-primary has-background-link-dark" type="submit">LOGIN</button>
+            </div>
+        </form>
+    </div>
 </body>
 </html>

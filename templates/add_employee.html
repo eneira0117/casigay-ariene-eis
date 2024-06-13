@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='Bulma/bulma.css') }}">
+    <link rel="stylesheet" href="static\css\style.css">
+    <title>Employee Information System</title>
+    
+</head>
+<body>
+    
+    <section class="hero">
+        <div class="hero-body">
+            <p class="title">Employee Information System</p>
+            <p class="subtitle">Casigay, Ariene Glieza Y.</p>
+        </div>
+    </section>
+
+    <div class="columns is-centered">
+        <div class="column is-2">
+            <aside class="menu has-background-danger-light">
+                <ul class="menu-list">
+                    <li><a>Employee list</a></li>
+                    <li><a>Personal info</a></li>
+                    <li><a>Educational info</a></li>
+                    <li><a>Work exp</a></li>
+                    <li><a>Trainings</a></li>
+                    <li><a class="has-text-black" href="index.html">Log out</a></li>
+                </ul>
+            </aside>
+        </div>
+
+
+
+        <div class="column is-10">
+            <div style="width: 500px;" class="container">
+                <h1 class="title has-text-centered">Add Employee</h1>
+                <form class="box" action="/add-employee" method="POST">
+                    <div class="field">
+                        <label class="label">Employee ID</label>
+                        <div class="control">
+                            <input class="input" name="emp_id" type="employee id" value="" required>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="label">Last Name</label>
+                        <div class="control">
+                            <input class="input" name="lname" type="last name"  required>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="label">First Name</label>
+                        <div class="control">
+                            <input class="input" name="fname" type="first name" required>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="label">Middle Name</label>
+                        <div class="control">
+                            <input class="input" name="mname" type="middle name" required>
+                        </div>
+                    </div>
+
+                    <div class="field is-grouped">
+                        <div class="control">
+                            <button class="button is-link" type="submit">Add Employee</button>
+                        </div>
+                        <div class="control">
+                            <button class="button is-text" type="reset">Reset</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

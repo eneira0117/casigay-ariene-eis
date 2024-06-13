@@ -1,66 +1,96 @@
+<!-- employee_list.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='Bulma/bulma.css') }}">
-    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Employee Information System</title>
 </head>
 <body>
-    <section class="hero has-background-link-dark is-italic">
+    
+    <section class="hero">
         <div class="hero-body">
-          <p class="title">Employee Information System</p>
-          <p class="subtitle">Casigay,Ariene Glieza Y.</p>
+            <p class="title">Employee Information System</p>
+            <p class="subtitle">Casigay, Ariene Glieza Y.</p>
         </div>
-      </section>
+    </section>
+    
+    <div class="messagebox">
+        {% if message != "" %}
+            {{ message }}
+        {% endif %}
+    </div>
 
-      
-        <div class="columns mt-2 is-centered">
+    <div class="columns is-centered">
+        <div class="column is-12">
+            <button class="add-button" onclick="window.location.href='add-form'">Add Employee</button>
+        </div>
+    </div>
+
+    <div class="columns is-centered">
         <div class="column is-2">
             <aside class="menu has-background-danger-light">
                 <ul class="menu-list">
-                    <li><a>Employee list</a></li>
-                    <li><a>Personal info</a></li>
-                    <li><a>Educational info</a></li>
-                    <li><a>Work exp</a></li>
-                    <li><a>Trainings</a></li>
-                    <li><a class="has-text-black" href="login.html"> Log out</a></li>
+                    <li><a href="/employee-list">Employee list</a></li>
+                    <li><a href="#">Personal info</a></li>
+                    <li><a href="#">Educational info</a></li>
+                    <li><a href="#">Work exp</a></li>
+                    <li><a href="#">Trainings</a></li>
+                    <li><a class="has-text-black" href="index.html">Log out</a></li>
                 </ul>
             </aside>
         </div>
-    
-        
-      <div class="column is-10">
-        <div style="width: 800px;" class="container">
-        <table class="table is-bordered is-striped is-fullwidth">
-            <thead>
-                <tr>
-                    <th colspan="7" class="has-text-centered has-background-link-dark">Employee list</th>
-                </tr>
-                    <tr class="has-text-link">
-                        <th class="has-text-link">EMPLOYEE ID</th>
-                        <th class="has-text-link">Last Name</th>
-                        <th class="has-text-link">First Name</th>
-                        <th class="has-text-link">Middle Name</th>
-                        <th class="has-text-link">Gender</th>
-                        
-                    </tr>
-                    
-                        {% for employee in employees %}
-                        <tr>
-                            <td>{{ employee[0] }}</td>
-                            <td>{{ employee[1] }}</td>
-                            <td>{{ employee[2] }}</td>
-                            <td>{{ employee[3] }}</td>
-                            <td>{{ employee[4] }}</td>
-                            
-                        </tr>
-                        {% endfor %}
-                    
-            </table>
+
+        <div class="column is-10">
+            <div class="container" style="overflow-x:auto;">
+                <form class="box has-background-warning-light" action="{{ url_for('employee_list') }}" method="POST">
+                    <table class="table is-bordered is-striped is-fullwidth">
+                        <thead>
+                            <tr>
+                                <th colspan="5" class="has-text-centered">Employee list</th>
+                            </tr>
+                            <tr>
+                                <th>EMPLOYEE ID</th>
+                                <th>Last Name</th>
+                                <th>First Name</th>
+                                <th>Middle Name</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for employee in employees %}
+                            <tr>
+                                <td>{{ employee[0] }}</td>
+                                <td>{{ employee[1] }}</td>
+                                <td>{{ employee[2] }}</td>
+                                <td>{{ employee[3] }}</td>
+                                <td>
+                                    <form id="deleteForm{{ employee[0] }}" method="POST" action="{{ url_for('delete_employee', emp_id=employee[0]) }}" onsubmit="return confirm('Are you sure you want to delete this employee?');">
+                                        <input type="hidden" name="emp_id" value="{{ employee[0] }}">
+                                        <a href="{{ url_for('update_form', emp_id=employee[0]) }}">Update</a>
+                                        <button type="submit" class="delete-button">Delete</button>
+                                    </form>
+                                </td>                                
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </form>
+            </div>
         </div>
     </div>
-      </div>
-    </div>
+
+    <!-- JavaScript function for delete confirmation -->
+    <script>
+        function deleteEmployee(employeeId) {
+            if (confirm('Are you sure you want to delete this employee?')) {
+                // Proceed with deletion, e.g., make an AJAX call or redirect to a delete endpoint
+                window.location.href = 'delete/' + employeeId;
+            }
+        }
+    </script>
+    
 </body>
 </html>
